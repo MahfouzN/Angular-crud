@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Liste des articles</h1>
+
+    <a  routerLink="/article/ajouter/" class="btn btn-success">Ajouter un article</a>
+
+    <table class="table table-bordered">
+      <tr>
+        <th>Id</th>
+        <th>Designation</th>
+        <th>Prix unitaire</th>
+        <th>Quantités</th>
+        <th>Descriptions</th>
+        <th width="300px">Actions</th>
+      </tr>
+      <tr *ngFor="let art of liste_articles ">
+        <td>{{ art.id }}</td>
+        <td>{{ art.designation }}</td>
+        <td>{{ art.prixUnitaire }}</td>
+        <td>{{ art.quantite }}</td>
+        <td>{{ art.description }}</td>
+        <td>
+          <a [routerLink]="['/article/', art.id, 'details']"  class="btn btn-outline-info">Details</a>
+          <a [routerLink]="['/article/', art.id, 'modifier']" class="btn btn-outline-primary">Modifier</a>
+          <button type="button" (click)="supprimerArticle(art.id)" class="btn btn-outline-danger">Supprimer</button>
+        </td>
+      </tr>
+    </table>
+ </div>
